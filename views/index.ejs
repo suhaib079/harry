@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%-include('./layouts/head.ejs')%>
+    <main>
+        <%suhaib.forEach(sister =>{%>
+<div>
+
+
+    <p>
+        <%= sister.name %>
+    </p>
+    <img src="<%= sister.image %>" alt="" srcset=""> 
+
+    <p>
+        <%= sister.house %>
+    </p>
+
+    <p>
+        <%= sister.patronus %>
+    </p>
+
+    <p>
+        <%= sister.alive %>
+    </p>
+
+
+    <form action="/my-fav" method="POST">
+
+    <input type="hidden" name="name" value="<%= sister.name %>">
+    <input type="hidden" name="image" value="<%= sister.image %>">
+    <input type="hidden" name="house" value="<%= sister.house %>">
+    <input type="hidden" name="patronus" value="<%= sister.patronus %>">
+    <input type="hidden" name="alive" value="<%= sister.alive %>">
+
+
+        <button type="submit"> add to fav</button>
+    </form>
+
+
+<%})%>
+</div>
+
+
+
+    </main>
+    
+</body>
+</html>
